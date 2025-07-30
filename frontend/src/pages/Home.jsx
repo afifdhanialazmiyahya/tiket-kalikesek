@@ -3,13 +3,14 @@ import WahanaCard from "../components/WahanaCard";
 
 export default function Home() {
   const [daftarWahana, setDaftarWahana] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL; // Ambil URL dari env
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/wahana")
+    fetch(`${API_URL}/api/wahana`)
       .then((res) => res.json())
       .then((data) => setDaftarWahana(data))
       .catch((err) => console.error("Gagal ambil wahana:", err));
-  }, []);
+  }, [API_URL]);
 
   return (
     <div className="ml-64">

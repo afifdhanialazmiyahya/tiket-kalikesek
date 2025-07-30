@@ -17,7 +17,7 @@ const RekapPenjualan = () => {
 
   useEffect(() => {
     fetchData();
-    fetch("http://localhost:3001/api/wahana")
+    fetch(`${API_URL}/api/wahana`)
       .then((res) => res.json())
       .then((data) => setWahanaList(data));
   }, []);
@@ -30,7 +30,7 @@ const RekapPenjualan = () => {
       params.append("tanggal_akhir", filter.tanggalAkhir);
     }
 
-    const url = `http://localhost:3001/api/pemesanan?${params.toString()}`;
+    const url = `${API_URL}/api/pemesanan?${params.toString()}`;
     console.log("Fetching:", url);
 
     fetch(url)
