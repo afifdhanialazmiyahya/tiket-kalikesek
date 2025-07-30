@@ -1,4 +1,10 @@
 
+import cors from "cors"; // jika belum, jalankan: npm install cors
+app.use(cors({
+  origin: "https://tiket-kalikesek.vercel.app", // URL frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 const express = require("express");
 const mysql = require("mysql2");
