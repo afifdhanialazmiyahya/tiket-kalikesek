@@ -1,17 +1,16 @@
+const express = require("express");
+const cors = require("cors");
+const mysql = require("mysql2");
 
-import cors from "cors"; // jika belum, jalankan: npm install cors
+const app = express();
+
+// Konfigurasi CORS khusus frontend kamu
 app.use(cors({
-  origin: "https://tiket-kalikesek.vercel.app", // URL frontend
+  origin: "https://tiket-kalikesek.vercel.app", // Ganti jika frontend pindah domain
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
-const express = require("express");
-const mysql = require("mysql2");
-const cors = require("cors");
-
-const app = express();
-app.use(cors());
 app.use(express.json());
 
 // Koneksi database
@@ -94,7 +93,6 @@ app.post("/api/pemesanan", (req, res) => {
     res.status(201).json({ message: "Pemesanan berhasil", id: result.insertId });
   });
 });
-
 
 // Jalankan server
 app.listen(3001, () => {
