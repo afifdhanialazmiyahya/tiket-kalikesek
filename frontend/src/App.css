@@ -1,0 +1,86 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  #ticket-print, #ticket-print * {
+    visibility: visible !important;
+  }
+
+  #ticket-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 58mm; /* atau ganti 80mm jika ingin ukuran lebih lebar */
+    min-height: auto;
+    font-size: 12px;
+    padding: 5mm;
+    background: white;
+    box-sizing: border-box;
+  }
+
+  /* Optional: menghilangkan margin default dari browser saat print */
+  @page {
+    margin: 0;
+    size: 58mm auto;
+  }
+}
+
+/* Untuk memastikan kalender memiliki latar putih */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0);
+}
+
+/* tambahkan ke file CSS global atau style JSX */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(8%) saturate(1236%) hue-rotate(174deg) brightness(95%) contrast(90%);
+}
+
+input[type="date"] {
+  background-color: white !important;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
