@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2");
@@ -15,10 +16,11 @@ app.use(express.json());
 
 // Koneksi database
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "tiket_wisata"
+  database: process.env.MYSQLDATABASE,
+  host: process.env.MYSQLHOST,
+  password: process.env.MYSQLPASSWORD,
+  port: process.env.MYSQLPORT,
+  user: process.env.MYSQLUSER,
 });
 
 // Endpoint pemesanan
